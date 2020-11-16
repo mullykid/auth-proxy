@@ -1,0 +1,24 @@
+spring:
+  mvc:
+    favicon:
+      enabled: false
+
+server:
+  port: 443
+  ssl:
+    key-store: config/keystore.p12
+    key-store-password: changeme
+    keyStoreType: PKCS12
+    keyAlias: ims-baas
+    protocol: TLS
+    enabled-protocols: TLSv1.2
+
+services:
+  proxy:
+    config: config-static/mappings.conf
+
+  auth:
+    loginUrl: http://user-backend/auth/login
+
+  audit:
+    postUrl:  #http://audit-backend/audit
